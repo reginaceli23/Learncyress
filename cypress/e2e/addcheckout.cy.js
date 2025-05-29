@@ -2,9 +2,9 @@ describe("Checkout", () => {
   beforeEach(() => {
     cy.visit("https://www.saucedemo.com/");
     cy.get(".login_logo").should("be.visible");
-    cy.get("#user-name").type("standard_user");
-    cy.get("#password").type("secret_sauce");
-    cy.get("#login-button").click();
+    cy.get("#user-name").should('exist').type("standard_user");
+    cy.get("#password").should('exist').type("secret_sauce");
+    cy.get("#login-button").should('exist').and('be.visible').click();
     cy.url().should('include', 'https://www.saucedemo.com/inventory.html');
   });
 
